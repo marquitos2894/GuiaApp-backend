@@ -2,8 +2,8 @@ package com.conmiciv.service;
 
 import java.util.List;
 
-import com.conmiciv.model.Empresa;
 
+import com.conmiciv.model.Empresa;
 
 public interface IEmpresaService {
 
