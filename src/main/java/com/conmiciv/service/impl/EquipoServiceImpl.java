@@ -1,4 +1,4 @@
-package com.conmciv.service.impl;
+package com.conmiciv.service.impl;
 
 import java.util.List;
 

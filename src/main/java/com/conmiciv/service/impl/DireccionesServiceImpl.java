@@ -1,6 +1,7 @@
-package com.conmciv.service.impl;
+package com.conmiciv.service.impl;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,28 +10,27 @@ import com.conmiciv.model.Direcciones;
 import com.conmiciv.service.IDireccionesService;
 
 @Service
-public class DireccionesServiceImpl implements IDireccionesService{
+public class DireccionesServiceImpl implements IDireccionesService {
 
 	@Autowired
 	private IDireccionesDAO dao;
-	
-	
+
 	@Override
 	public void registrar(Direcciones direcciones) {
 		dao.save(direcciones);
-		
+
 	}
 
 	@Override
 	public void modificar(Direcciones direcciones) {
 		dao.save(direcciones);
-		
+
 	}
 
 	@Override
 	public void eliminar(int idDirecciones) {
 		dao.delete(idDirecciones);
-		
+
 	}
 
 	@Override
@@ -45,6 +45,4 @@ public class DireccionesServiceImpl implements IDireccionesService{
 		return dao.findAll();
 	}
 
-	
-	
 }

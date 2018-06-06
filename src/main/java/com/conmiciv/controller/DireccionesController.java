@@ -22,7 +22,7 @@ import com.conmiciv.service.IDireccionesService;
 @RestController
 @RequestMapping("/direcciones")
 public class DireccionesController {
-
+	
 	@Autowired
 	private IDireccionesService service;
 	
@@ -78,4 +78,5 @@ public class DireccionesController {
 		
 		return new ResponseEntity<Integer>(resultado,HttpStatus.OK);
 	}
+
 }

@@ -1,14 +1,19 @@
 package com.conmiciv.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+//import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -35,7 +40,7 @@ public class Guia {
 	private Equipo equipo;
 	
 	@JsonSerialize(using = ToStringSerializer.class)
-	private LocalDateTime fecha;
+	private LocalDate fecha;
 	
 	@Column(name="puntopartida", nullable=false, length = 100)
 	private String puntopartida;
@@ -50,6 +55,11 @@ public class Guia {
 	private String referencia;
 
 
+	@OneToMany(mappedBy = "guia", cascade = { CascadeType.PERSIST, CascadeType.MERGE,
+			CascadeType.REMOVE }, fetch = FetchType.LAZY, orphanRemoval = true)
+	private List<DetalleGuia> detalleguia;
+	
+	
 	public int getIdGuia() {
 		return idGuia;
 	}
@@ -90,12 +100,12 @@ public class Guia {
 	}
 
 
-	public LocalDateTime getFecha() {
+	public LocalDate getFecha() {
 		return fecha;
 	}
 
 
-	public void setFecha(LocalDateTime fecha) {
+	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
 
@@ -139,6 +149,16 @@ public class Guia {
 
 	public void setRepresentante(String representante) {
 		this.representante = representante;
+	}
+
+
+	public List<DetalleGuia> getDetalleguia() {
+		return detalleguia;
+	}
+
+
+	public void setDetalleguia(List<DetalleGuia> detalleguia) {
+		this.detalleguia = detalleguia;
 	}
 	
 	
